@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ricky Dolor | Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #f4f6fb;
+      color: #333;
+      line-height: 1.6;
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 13, 71, 0.95);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 22px;
+      color: #c5b3ff;
+    }
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+    }
+    nav .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: #c5b3ff;
+      transition: width 0.3s ease;
+    }
+    nav .menu a:hover::after,
+    nav .menu a.active::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    header {
+      background: linear-gradient(to right, #0c0d47, #050019);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: left;
+    }
+    .hero-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1100px;
+    }
+    .hero-content {
+      flex: 1;
+      min-width: 280px;
+      animation: fadeInUp 1s ease;
+    }
+    .hero-content h1 {
+      font-size: 58px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero-content h2 {
+      font-size: 32px;
+      color: #6c8dff;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+    .hero-img {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-img img {
+      width: 380px;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
+    .hero-img img:hover {
+      transform: scale(1.05);
+    }
+    .btn-primary {
+      background: #0077ff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .btn-primary:hover {
+      background: #00ced1;
+    }
+
+    /* PROGRAMMING ICONS */
+    .tech-icons {
+      margin-top: 20px;
+    }
+    .tech-icons i {
+      font-size: 38px;
+      margin: 0 12px;
+      color: #fff;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .tech-icons i:hover {
+      transform: translateY(-6px);
+      color: #ff5757;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #0c0d47;
+    }
+    section p {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    /* CARDS */
+    .grid {
+      display: grid;
+      gap: 25px;
+    }
+    .projects-wrapper, .services-wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card h3 {
+      color: #0c0d47;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: #444;
+      font-size: 15px;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      justify-content: center;
+    }
+    .about img {
+      width: 260px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+    .about .text {
+      flex: 1;
+      min-width: 280px;
+      text-align: left;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #022951;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    
+#contact {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  min-height: 100vh;         /* take full screen height */
+  background: #f4f6fb;       /* optional background */
+}
+    .contact-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #10355b;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #10355b;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #10355b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0d2a46;
+    }
+
+    .success-message {
+      margin-top: 15px;
+      color: green;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Ricky Dolor</div>
+    <div class="menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#developer">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <h1>Hi, I'm Ricky</h1>
+        <h2 id="typing">I’m <span></span></h2>
+        <p>I am a <b style="color:#ff5757;">Web Developer & Designer</b>. Passionate about creating user-friendly websites and digital experiences.</p>
+
+        <!-- Programming Language Icons -->
+        <div class="tech-icons">
+          <i class="fa-brands fa-html5" title="HTML5"></i>
+          <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+          <i class="fa-brands fa-js" title="JavaScript"></i>
+          <i class="fa-brands fa-python" title="Python"></i>
+          <i class="fa-solid fa-code" title="VB.NET"></i>
+        </div>
+
+        <a href="Ricky resume updated.pdf" download class="btn-primary">Download Resume</a>
+      </div>
+      <div class="hero-img">
+        <img src="riki.png" alt="Ricky Dolor">
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="developer">
+    <h2>About Me</h2>
+    <div class="about">
+      <img src="riki.jpg" alt="Ricky Dolor">
+      <div class="text">
+        <p>I'm a passionate web developer/designer, always eager to learn and grow. Skilled in HTML, CSS, Python, and VB.NET, I enjoy building websites and applications that are both functional and visually engaging.</p>
+        <p>Every project I work on challenges me to learn new things and refine my craft. My goal is to create digital solutions that make a difference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Here are some of my featured works:</p>
+    <div class="grid projects-wrapper">
+      <div class="card">
+        <h3>CSS</h3>
+        <p>Alumni website with login, updates on events, and reunion requests.</p>
+      </div>
+      <div class="card">
+        <h3>VB.NET</h3>
+        <p>MediSys: Automated medicine inventory system with detailed medicine tracking.</p>
+      </div>
+      <div class="card">
+        <h3>Python</h3>
+        <p>Enrollment system to manage student registration from application to approval.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Services</h2>
+    <p>Here’s what I can do for you:</p>
+    <div class="grid services-wrapper">
+      <div class="card"><h3>Website Development</h3><p>Responsive, modern websites with clean design.</p></div>
+      <div class="card"><h3>Web App Development</h3><p>Scalable and reliable web applications.</p></div>
+      <div class="card"><h3>System Development</h3><p>Custom-built systems to improve workflow.</p></div>
+      <div class="card"><h3>Tailored Solutions</h3><p>Innovative solutions for unique challenges.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+   <div class="contact-container">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="send_mail.php" method="POST">
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+  </div>
+  <div class="form-group">
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+  </div>
+  <button type="submit">Send Message</button>
+</form>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Ricky Dolor. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Typing effect
+    const element = document.querySelector("#typing span");
+    const words = ["a Developer", "a Designer"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      if (isDeleting) {
+        element.textContent = currentWord.substring(0, charIndex--);
+        if (charIndex < 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; }
+      } else {
+        element.textContent = currentWord.substring(0, charIndex++);
+        if (charIndex > currentWord.length) { isDeleting = true; setTimeout(typeEffect, 1000); return; }
+      }
+      setTimeout(typeEffect, isDeleting ? 100 : 80);
+    }
+    typeEffect();
+
+    // Active nav underline switcher
+    const navLinks = document.querySelectorAll("nav .menu a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
