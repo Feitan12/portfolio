@@ -3,3 +3,4 @@ CREATE TABLE students (
     name VARCHAR(50),
     grade_level INT
 );
+ALTER TABLE students ADD age INT;
